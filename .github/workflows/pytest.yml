@@ -17,20 +17,25 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install allure-pytest pytest-mock
 
-      - name: Run tests with Allure
-        run: |
-          pytest --alluredir=allure_results
+      - name: Create Allure results directory
+        run: mkdir -p allure_results && chmod -R 777 allure_results
+
+      - name: Run tests
+        run: pytest --alluredir=allure_results -v
 
       - name: Generate Allure report
         uses: simple-elf/allure-report-action@v1
+        if: always()
         with:
           allure_results: allure_results
+          gh_pages: gh-pages
+          allure_history: allure-history
 
       - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main' # Only deploy on main branch
         uses: peaceiris/actions-gh-pages@v3
+        if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./allure-report
-          keep_files: true
+          publish_dir: ./allure-history
