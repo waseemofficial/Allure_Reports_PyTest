@@ -1,0 +1,3 @@
+{
+  "python.analysis.extraPaths": ["./Allure_reports_demo/modules"]
+}

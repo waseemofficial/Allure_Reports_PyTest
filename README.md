@@ -57,4 +57,4 @@
 
 </div>
 
-
+![Allure Report](https://img.shields.io/endpoint?url=https://waseemofficial.github.io/Allure_Reports_PyTest/allure-report/badge.json)
