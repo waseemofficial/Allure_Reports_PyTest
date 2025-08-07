@@ -16,8 +16,8 @@ class TestGenralSetupOptions:
     @pytest.fixture(autouse=True)  # this runs before every subsequent test
     def setup_and_teardown(self):
         options = Options()
-        # options.add_argument("--headless")  # Run in headless mode for CI/CD
-        options.add_argument("--start-maximized")  # optional
+        options.add_argument("--headless")  # Run in headless mode for CI/CD
+        # options.add_argument("--start-maximized")  # optional
 
         # Automatically get the matching ChromeDriver version
         service = Service(ChromeDriverManager().install())
