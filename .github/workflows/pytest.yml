@@ -30,8 +30,18 @@ jobs:
       - name: Create Allure results directory
         run: mkdir -p allure_results && chmod -R 777 allure_results
 
+      - name: Generate Allure report
+        run: |
+          npm install -g allure-commandline --save-dev
+          allure generate allure-results --clean -o allure-report
+          echo '{"schemaVersion":1,"label":"Allure","message":"Report Ready","color":"green"}' > allure-report/badge.json
+
       - name: Run tests
         run: pytest --alluredir=allure_results -v
+
+      - name: Run tests with Allure
+        run: |
+          pytest --alluredir=allure-results || echo "Tests failed"
 
       # Keep history of old reports
       - name: Generate Allure report with history
@@ -64,3 +74,18 @@ jobs:
           publish_dir: ./latest-report
           destination_dir: . # Put latest report in root
           keep_files: true
+
+      - name: Comment PR with report link if tests failed
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const reportUrl = `https://waseemofficial.github.io/Allure_Reports_PyTest/`;
+            const badgeUrl = `https://img.shields.io/endpoint?url=${reportUrl}badge.json`;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## ❌ Test Failures\n[![Allure Badge](${badgeUrl})](${reportUrl})\nClick above to see full Allure report.\n\n<details>\n<summary>Submit Bug Report</summary>\n\n[New Bug Report](../../issues/new?template=bug_report.yml)\n</details>`
+            })

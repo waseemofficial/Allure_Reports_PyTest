@@ -54,6 +54,8 @@
 
 ![Allure Report](https://img.shields.io/endpoint?url=https://waseemofficial.github.io/Allure_Reports_PyTest/allure-report/badge.json)
 
+
+
 ## 📌 Overview
 This repository demonstrates **Allure Reports** integration with **Selenium**, **Python**, and **PyTest** for generating rich, interactive test execution reports.  
 Allure allows you to:

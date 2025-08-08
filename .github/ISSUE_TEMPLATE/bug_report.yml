@@ -1,0 +1,35 @@
+name: 🐛 Bug Report
+description: Report an issue with reproduction steps
+labels: [bug]
+body:
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - Critical
+        - Major
+        - Minor
+        - Trivial
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: Short description of the bug
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Provide a clear step-by-step guide
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Screenshots
