@@ -52,7 +52,9 @@
 
 # 📊 Allure Reports in Selenium with Python and PyTest
 
-![Allure Report](https://img.shields.io/endpoint?url=https://waseemofficial.github.io/Allure_Reports_PyTest/allure-report/badge.json)
+
+![Allure Badge](https://img.shields.io/endpoint?url=https://waseemofficial.github.io/Allure_Reports_PyTest/allure-report/badge.json)
+[View Full Report](https://waseemofficial.github.io/Allure_Reports_PyTest/allure-report/)
 
 
 
@@ -156,5 +158,8 @@ This project is licensed under the MIT License.
 Author: Syed Waseem
 
 GitHub: waseemofficial
+
+# add issues
+[issues](https://github.com/waseemofficial/Allure_Reports_PyTest/issues/new/choose)
 
 ⭐ If you like this repository, don’t forget to star it and follow for more updates!

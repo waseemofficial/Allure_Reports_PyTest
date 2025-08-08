@@ -1,0 +1,79 @@
+# name: 🐞 Bug Report
+# description: Report a bug found while running the tests or viewing the Allure report
+# title: "[BUG]: "
+# labels: [bug]
+# assignees:
+#   - waseemofficial
+# body:
+#   - type: markdown
+#     attributes:
+#       value: |
+#         ## Thanks for reporting a bug 🐛
+#         Please fill in the following details to help us reproduce the issue.
+
+#   - type: input
+#     id: allure_link
+#     attributes:
+#       label: Allure Report Link
+#       description: Paste the link to the failing Allure report.
+#       placeholder: https://waseemofficial.github.io/Allure_Reports_PyTest/allure-report/
+#     validations:
+#       required: true
+
+#   - type: dropdown
+#     id: severity
+#     attributes:
+#       label: Severity
+#       description: How severe is the bug?
+#       options:
+#         - Critical 🚨
+#         - High ⚠️
+#         - Medium ⚡
+#         - Low 🐌
+#     validations:
+#       required: true
+
+#   - type: textarea
+#     id: steps
+#     attributes:
+#       label: Steps to Reproduce
+#       description: Please describe the exact steps so we can reproduce the bug.
+#       placeholder: |
+#         1. Go to '...'
+#         2. Click on '...'
+#         3. Scroll down to '...'
+#         4. See error
+#     validations:
+#       required: true
+
+#   - type: textarea
+#     id: expected
+#     attributes:
+#       label: Expected Behavior
+#       description: What should have happened instead?
+#     validations:
+#       required: true
+
+#   - type: textarea
+#     id: actual
+#     attributes:
+#       label: Actual Behavior
+#       description: What actually happened?
+#     validations:
+#       required: true
+
+#   - type: textarea
+#     id: screenshots
+#     attributes:
+#       label: Screenshots
+#       description: Attach screenshots or logs to help explain the problem.
+
+#   - type: textarea
+#     id: environment
+#     attributes:
+#       label: Environment Details
+#       description: Describe your environment.
+#       placeholder: |
+#         - OS: [e.g. Ubuntu 22.04]
+#         - Python Version: [e.g. 3.10]
+#         - Browser: [e.g. Chrome 115]
