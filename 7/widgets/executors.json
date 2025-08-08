@@ -1,0 +1,10 @@
+[ {
+  "name" : "GitHub Actions",
+  "type" : "github",
+  "url" : "https://waseemofficial.github.io/Allure_Reports_PyTest",
+  "buildOrder" : 7,
+  "buildName" : "GitHub Actions Run #16835448778",
+  "buildUrl" : "https://github.com/waseemofficial/Allure_Reports_PyTest/actions/runs/16835448778",
+  "reportName" : "Allure Report with history",
+  "reportUrl" : "https://waseemofficial.github.io/Allure_Reports_PyTest/7"
+} ]
