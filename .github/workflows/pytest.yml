@@ -25,7 +25,8 @@ jobs:
       - name: Run tests
         run: pytest --alluredir=allure_results -v
 
-      - name: Generate Allure report
+      # Keep history of old reports
+      - name: Generate Allure report with history
         uses: simple-elf/allure-report-action@v1
         if: always()
         with:
@@ -33,9 +34,25 @@ jobs:
           gh_pages: gh-pages
           allure_history: allure-history
 
+      # Generate latest report separately
+      - name: Generate latest Allure report
+        run: |
+          allure generate allure_results --clean -o latest-report
+
+      # Deploy BOTH history and latest at root
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./allure-history
+          keep_files: true # Don't delete existing files (keeps history)
+
+      - name: Deploy latest report to root
+        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./latest-report
+          destination_dir: . # Put latest report in root
+          keep_files: true
